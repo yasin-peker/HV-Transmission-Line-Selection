@@ -1,7 +1,9 @@
 # HV-Transmission-Line-Selection
+
 This project studies the selection of transmission lines according to the transmission line parameters such as number of circuits, number of bundle conductors and a library of ACSR conductors. There are different types of transmission towers, and each of these towers has different configurations.
 
-### The parameters that are these parameters are examined:
+### The parameters that are examined:
+
 | Parameters covered in the project |
 | -----|
 |Number of circuits|
@@ -107,6 +109,8 @@ surface of the Earth. Since the Earth changes the electric field
 of the line, the flux between the original conductors and their 
 images is perpendicular to the plane, and this plane is an 
 equipotential surface.
+
+<img src="./images/three-phase-line-and-image.png" width=300 height=450>
 
 The distances for the same phases between the original 
 conductor and the image conductor are denoted by 
