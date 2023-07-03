@@ -26,7 +26,7 @@ This is the main idea of the first phase of the project. Using this property, th
 extracted from the input text and then converted to SI units. At the end of the first phase, these are 
 the parameters that are calculated:
 
-𝑆𝐵𝑎𝑠𝑒, 𝑉𝐵𝑎𝑠𝑒, 𝑁𝑏𝑢𝑛𝑑𝑙𝑒, 𝑑𝑏𝑢𝑛𝑑𝑙𝑒,𝑙𝑒𝑛𝑔𝑡ℎ, 𝑐𝑜𝑛𝑑𝑢𝑐𝑡𝑜𝑟 𝑛𝑎𝑚𝑒, 𝑜𝑢𝑡𝑠𝑖𝑑𝑒 𝑑𝑖𝑎𝑚𝑒𝑡𝑒𝑟, 𝑅𝑎𝑐 𝑎𝑛𝑑 𝐺𝑀𝑅𝑐𝑜𝑛𝑑𝑢𝑐𝑡𝑜𝑟
+$𝑆_{𝐵𝑎𝑠𝑒}$, $𝑉_{𝐵𝑎𝑠𝑒}$, $𝑁_{𝑏𝑢𝑛𝑑𝑙𝑒}$, $𝑑_{𝑏𝑢𝑛𝑑𝑙𝑒}$, $𝑙𝑒𝑛𝑔𝑡ℎ$, 𝑐𝑜𝑛𝑑𝑢𝑐𝑡𝑜𝑟 𝑛𝑎𝑚𝑒, $r_{𝑜𝑢𝑡𝑠𝑖𝑑𝑒}$, $𝑅_{𝑎𝑐}$ 𝑎𝑛𝑑 $𝐺𝑀𝑅_{𝑐𝑜𝑛𝑑𝑢𝑐𝑡𝑜𝑟}$
 
 Moving on, in the project's second phase, these parameters are utilized, and the series resistance, 
 series reactance, and shunt susceptance are calculated per unit.
@@ -36,6 +36,30 @@ conductors in each phase is divided by the number of bundle conductors in each p
 is multiplied by the length of the line, which gives the total series resistance of the line. To construct 
 the table of base values, the 𝑆𝐵𝑎𝑠𝑒, 𝑉𝐵𝑎𝑠𝑒 values are used. The series resistance in per unit is the 
 following:
+
+$\Large R_{pu} = \frac{R}{Z_{Base}}$
+
+After calculating the series resistance per unit, the series reactance per unit is calculated. This time the 
+calculations are more complex since there are eight different possibilities in the 𝑁𝑏𝑢𝑛𝑑𝑙𝑒. According to 
+the number of bundle conductors in each phase, the calculation of the GMR changes since it is related 
+to the geometry of the conductors.
+
+To begin with, geometric mean distance, GMD is calculated. To calculate the GMD, the position of each 
+phase is utilized, and the difference between each phase is found. The distance between each phase is 
+denoted by the letter D. The following formula is used to calculate the difference between the phases:
+
+$\Large D_{ab} = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
+
+$\Large D_{bc} = \sqrt{(x_2 - x_3)^2 + (y_2 - y_3)^2}$
+
+$\Large D_{ca} = \sqrt{(x_3 - x_1)^2 + (y_3 - y_1)^2}$
+
+After calculating the distance between the phases, the GMD is found by the following:
+
+$\Large GMD = \sqrt[3]{D_{ab} * D_{bc} * D_{ca}}$
+
+When it comes to the calculation of the GMR, the formula changes according to the number of the 
+bundle conductors in each phase. So, each case is considered separately.
 
 | $\Large N_{bundle}$| Calculation of GMR |
 | --------| -------------------|
